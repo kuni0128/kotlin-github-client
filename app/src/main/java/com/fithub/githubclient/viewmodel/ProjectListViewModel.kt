@@ -1,6 +1,7 @@
 package com.fithub.githubclient.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -31,7 +32,7 @@ class ProjectListViewModel(application: Application) : AndroidViewModel(applicat
                     projectListLiveData.postValue(request.body())
                 }
             } catch (e: Exception) {
-                e.stackTrace
+                Log.e("loadProjectList:Failed", e.stackTrace.toString())
             }
         }
     }
